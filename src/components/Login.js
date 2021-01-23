@@ -6,6 +6,7 @@ import {makeStyles} from '@material-ui/core/styles'
 import { useAuth } from "../contexts/AuthContext";
 import { Alert } from "@material-ui/lab";
 import { useHistory } from "react-router-dom";
+import googleLogo from "../assets/google_logo.png";
 
 
 
@@ -136,8 +137,8 @@ export default function Login() {
                     <Mui.Button type="submit" disabled={loading} fullWidth variant="contained" color="primary" className={classes.submit}>
                         Log In
                     </Mui.Button>
-                    <Mui.Button  disabled={loading} fullWidth variant="contained" color="primary" className={classes.submit}  onClick={signInWithGoogle}>
-                        Log In with Google
+                    <Mui.Button  disabled={loading} fullWidth variant="contained" color="primary" className={classes.submit}  onClick={signInWithGoogle} style={{backgroundColor:"#fff", color:"#000"}}>
+                        <img src={googleLogo} alt="google_logo"/> &nbsp; &nbsp; Sign In with Google
                     </Mui.Button>
                     <Mui.Grid container>
                         <Mui.Grid item xs>
