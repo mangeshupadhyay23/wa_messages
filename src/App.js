@@ -11,7 +11,7 @@ import Home from "./components/Home";
 function App() {
     
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
         <AuthProvider>
             <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard}/>
