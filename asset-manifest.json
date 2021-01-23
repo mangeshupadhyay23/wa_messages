@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/mangeshupadhyay23/wa_messages/static/js/main.204854d8.chunk.js",
+    "main.js.map": "/mangeshupadhyay23/wa_messages/static/js/main.204854d8.chunk.js.map",
+    "runtime-main.js": "/mangeshupadhyay23/wa_messages/static/js/runtime-main.2f78326d.js",
+    "runtime-main.js.map": "/mangeshupadhyay23/wa_messages/static/js/runtime-main.2f78326d.js.map",
+    "static/css/2.dfae95b9.chunk.css": "/mangeshupadhyay23/wa_messages/static/css/2.dfae95b9.chunk.css",
+    "static/js/2.5589d9cc.chunk.js": "/mangeshupadhyay23/wa_messages/static/js/2.5589d9cc.chunk.js",
+    "static/js/2.5589d9cc.chunk.js.map": "/mangeshupadhyay23/wa_messages/static/js/2.5589d9cc.chunk.js.map",
+    "index.html": "/mangeshupadhyay23/wa_messages/index.html",
+    "static/css/2.dfae95b9.chunk.css.map": "/mangeshupadhyay23/wa_messages/static/css/2.dfae95b9.chunk.css.map",
+    "static/js/2.5589d9cc.chunk.js.LICENSE.txt": "/mangeshupadhyay23/wa_messages/static/js/2.5589d9cc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2f78326d.js",
+    "static/css/2.dfae95b9.chunk.css",
+    "static/js/2.5589d9cc.chunk.js",
+    "static/js/main.204854d8.chunk.js"
+  ]
+}
