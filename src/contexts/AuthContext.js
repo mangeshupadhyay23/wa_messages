@@ -29,7 +29,6 @@ export  function AuthProvider({ children }) {
     }
 
     const signInViaGoogle =()=>{
-        console.log(googleProvider)
         return auth.signInWithPopup(googleProvider);
     }
 

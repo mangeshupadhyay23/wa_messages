@@ -35,6 +35,7 @@ export default function Dashboard() {
     const classes = useStyles();
     const [message, setMessage] = useState()
     const [error, setError] = useState()
+    const [loading, setLoading] = useState(false)
     const [phoneNo, setPhoneNo] = useState()
     const [notification, setNotification] = useState('')
     const { currentUser, logout } = useAuth()
@@ -53,11 +54,13 @@ export default function Dashboard() {
 
     const sendHandler = async(e)=>{
         e.preventDefault()
+        setLoading(true)
         await axios.post('https://fierce-everglades-53685.herokuapp.com/message', {
             message: message,
             to: phoneNo
           })
           .then(function (response) {
+            setLoading(false)
             setNotification("Message sent successfully")
             setTimeout(()=>{setNotification('')},2500)
           })
@@ -66,7 +69,7 @@ export default function Dashboard() {
             console.log(error);
             setTimeout(()=>{setError('')},2500)
         });
-
+        
         setMessage('')
     }
     return (
@@ -126,8 +129,9 @@ export default function Dashboard() {
                             className={classes.button}
                             endIcon={<SendIcon/>}
                             autoFocus
+                            disabled={loading}
                         >
-                            Send
+                           {loading ? "Sending" : "Send"}
                         </Mui.Button>
                     </form>
                 </div>
