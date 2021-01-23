@@ -1,6 +1,5 @@
 import React,{useState, useRef} from 'react'
 import * as Mui from "@material-ui/core";
-import { RemoveRedEye } from '@material-ui/icons';
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import {makeStyles} from '@material-ui/core/styles'
 import { useAuth } from "../contexts/AuthContext";
@@ -32,14 +31,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Login() {
+export default function ForgotPassword() {
     const classes = useStyles();
 
     let emailRef = useRef()
-    let passwordRef = useRef()
     const [error, setError] = useState('')
+    const [notification, setNotification] = useState('')
     const [loading, setLoading] = useState(false)
-    const {login, signInViaGoogle} = useAuth()
+    const {resetPassword} = useAuth()
     const history = useHistory()
 
     const handleSubmit= async(e)=>{
@@ -48,8 +47,9 @@ export default function Login() {
         try{
             setError("")
             setLoading(true)
-            await login(emailRef.value, passwordRef.value)
-            history.push('/dashboard')
+            await resetPassword(emailRef.value)
+            setNotification("A password reset email has been sent. Redirecting to Login")
+            setTimeout(()=>{history.push("/login")},3000)
         }catch(err){
             console.log(err)
             setError("Failed to log in")
@@ -57,28 +57,6 @@ export default function Login() {
 
         setLoading(false)
         
-    }
-
-    const signInWithGoogle= async(e)=>{
-        e.preventDefault();
-        try{
-            setError("")
-            setLoading(true)
-            await signInViaGoogle()
-            history.push("/dashboard")
-        }catch(err){
-            console.log(err)
-            setError("Failed to create an account")
-        }
-
-        setLoading(false)
-        
-    }
-
-    const [passwordIsMasked, setPasswordIsMasked] = useState(true)
-
-    const togglePasswordMask=()=>{
-      setPasswordIsMasked(!passwordIsMasked)
     }
 
     return (
@@ -89,9 +67,10 @@ export default function Login() {
                     <LockOutlinedIcon/>
                 </Mui.Avatar>
                 <Mui.Typography component="h1" variant="h5">
-                    Log In
+                    Reset Password
                 </Mui.Typography>
                 {error && <Alert severity="error">{error}</Alert>}
+                {notification && <Alert severity="info">{notification}</Alert>}
                 <form className={classes.form} noValidate onSubmit={handleSubmit}>
                     <Mui.TextField 
                         variant="outlined" 
@@ -107,47 +86,13 @@ export default function Login() {
                         autoFocus
                     />
 
-                    <Mui.TextField 
-                        variant="outlined" 
-                        margin="normal" 
-                        required 
-                        fullWidth
-                        inputRef={input=> passwordRef=input}
-                        id="password" 
-                        type={passwordIsMasked ? "password" : "text"}
-                        label="Password" 
-                        name="password" 
-                        autoComplete="current-password"
-                        InputProps={{
-                            endAdornment: (
-                              <Mui.InputAdornment position="end">
-                                <RemoveRedEye
-                                  style={{cursor:"pointer"}}
-                                  onClick={togglePasswordMask}
-                                />
-                              </Mui.InputAdornment>
-                            ),
-                        }}
-                    />
-                    <Mui.FormControlLabel 
-                        control={<Mui.Checkbox value="remember" color="primary"/>}
-                        label="Remember me"
-                    />
                     <Mui.Button type="submit" disabled={loading} fullWidth variant="contained" color="primary" className={classes.submit}>
-                        Log In
-                    </Mui.Button>
-                    <Mui.Button  disabled={loading} fullWidth variant="contained" color="primary" className={classes.submit}  onClick={signInWithGoogle}>
-                        Log In with Google
+                        Reset Password
                     </Mui.Button>
                     <Mui.Grid container>
                         <Mui.Grid item xs>
-                            <Mui.Link href="/forgotpassword" variant="body2">
-                                Forgot Password
-                            </Mui.Link>
-                        </Mui.Grid>
-                        <Mui.Grid item>
-                            <Mui.Link href="/signup" variant="body2">
-                                Need an account? Sign Up
+                            <Mui.Link href="/login" variant="body2">
+                                Log in
                             </Mui.Link>
                         </Mui.Grid>
                     </Mui.Grid>

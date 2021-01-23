@@ -5,6 +5,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import {makeStyles} from '@material-ui/core/styles'
 import { useAuth } from "../contexts/AuthContext";
 import { Alert } from "@material-ui/lab";
+import { useHistory } from "react-router-dom";
+
 
 
 
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Signup() {
+export default function Signup(props) {
     const classes = useStyles();
 
     let emailRef = useRef()
@@ -39,7 +41,8 @@ export default function Signup() {
     let passwordConfirmRef = useRef()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
-    const {signup} = useAuth()
+    const {signup, signInViaGoogle} = useAuth()
+    const history = useHistory()
 
     const handleSubmit= async(e)=>{
         e.preventDefault();
@@ -51,6 +54,23 @@ export default function Signup() {
             setError("")
             setLoading(true)
             await signup(emailRef.value, passwordRef.value)
+            history.push("/dashboard")
+        }catch(err){
+            console.log(err)
+            setError("Failed to create an account")
+        }
+
+        setLoading(false)
+        
+    }
+
+    const signInWithGoogle= async(e)=>{
+        e.preventDefault();
+        try{
+            setError("")
+            setLoading(true)
+            await signInViaGoogle()
+            history.push("/dashboard")
         }catch(err){
             console.log(err)
             setError("Failed to create an account")
@@ -65,6 +85,7 @@ export default function Signup() {
     const togglePasswordMask=()=>{
       setPasswordIsMasked(!passwordIsMasked)
     }
+
 
     return (
         <Mui.Container component="main" maxWidth="xs">
@@ -142,6 +163,10 @@ export default function Signup() {
                     <Mui.Button type="submit" disabled={loading} fullWidth variant="contained" color="primary" className={classes.submit}>
                         Sign Up
                     </Mui.Button>
+                    <Mui.Button  disabled={loading} fullWidth variant="contained" color="primary" className={classes.submit}  onClick={signInWithGoogle}>
+                        Sign In with Google
+                    </Mui.Button>
+                    {props.googleSignIn}
                     <Mui.Grid container>
                         <Mui.Grid item>
                             <Mui.Link href="/login" variant="body2">
