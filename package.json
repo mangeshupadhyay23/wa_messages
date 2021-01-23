@@ -1,6 +1,6 @@
 {
   "name": "wa_messages",
-  "homepage": "https://github.com/mangeshupadhyay23/wa_messages",
+  "homepage": "./",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
