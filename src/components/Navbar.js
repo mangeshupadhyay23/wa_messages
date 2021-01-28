@@ -33,7 +33,7 @@ const Navbar = (props) => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" style={{background: "linear-gradient(#7638e7,#5b2cb3)"}}>
       <Toolbar>
         <Container maxWidth="md" className={classes.navbarDisplayFlex}>
           <IconButton edge="start" color="inherit" aria-label="home" href="/">
@@ -48,6 +48,7 @@ const Navbar = (props) => {
                 <a href={"/login"} key={"login"} className={classes.linkText}>
                     <ListItem button>
                         <ListItemText primary={'Log In'} />
+                        <ion-icon name="log-in-outline"></ion-icon>
                     </ListItem>
                 </a>
             }
@@ -55,6 +56,7 @@ const Navbar = (props) => {
                 <Button onClick={props.logout} className={classes.linkText}>
                     <ListItem button>
                     <ListItemText primary={"Log Out"} />
+                    <ion-icon name="log-out-outline" ></ion-icon>
                     </ListItem>
                 </Button>
             }
