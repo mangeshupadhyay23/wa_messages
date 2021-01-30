@@ -107,7 +107,7 @@ h3{
     background: linear-gradient(#7638e7,#5b2cb3);
     color: #ecf0f1;
     border-radius: 5px;
-    width: 20%;
+    width: 25%;
     height: 50px;
     font-size: 100%;
   }
@@ -154,7 +154,7 @@ h3{
   }
 
   .features{
-      font-size: 80%;
+      font-size: 60%;
       margin-top: 15px;
   }
 
@@ -175,3 +175,29 @@ h3{
     position: fixed;
     width: 100%;
   }
+
+.footer-nav ul {
+    float: left;
+    margin-bottom: 100px;
+    width: 20%;
+    margin-right: 5%;
+}
+
+
+.footer-nav ul li:first-child{
+    color:black;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.footer-nav ul li{
+    color:  #500AD2;
+    margin-bottom: 3px;
+    padding: 3px;
+    transition: margin-left 0.5s;
+    cursor: pointer;
+}
+
+.footer-nav ul li:hover{
+    margin-left: 2px;
+}

@@ -1,0 +1,8 @@
+
+.digaonal{
+    background: linear-gradient(to top right, #1A0C4C, #381C82);
+    color: white;
+    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+    padding: 10rem 20%;
+    margin-bottom: 100px;
+}
