@@ -1,9 +1,31 @@
-# Getting Started with Create React App
+# WA_Messages : Inter Platform Chatting webapp using Twilio API
+A universal platform for inter platform chatting using Twilio API and React.JS frontend using Firebase database.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting Started
+1. [Frontend](#1-frontend)
+2. [Backend](#2-backend)
+## Stack Used
+- React.Js
+- Node.Js
+- Firebase
+- Twilio
+- Material UI
 
-## Available Scripts
-
+# Pre- Requisites
+1. A firebase project, add project credentials inside config.env file to get started.
+2. A firebase developer account to enable using 'signin via google', add the credentials in env file
+3. A Twilio account
+# Getting Started:
+# **1. Frontend**
+### Environment Variables
+`REACT_APP_APIKEY= "Firebase api key goes here"`
+`REACT_APP_AUTHDOMAIN= "Firebase authdoamin"`
+`REACT_APP_PROJECTID= "Firebase project ID"`
+`REACT_APP_STORAGEBUCKET= "Firestore Storage Bucket"`
+`REACT_APP_MESSAGINGSENDERID= "TMessage Sender ID"`
+`REACT_APP_APPID= "Firebase APP id"`
+`REACT_APP_MEASUREMENTID= "Firebase Measurement id" `
+### Available Scripts
 In the project directory, you can run:
 
 ### `npm start`
@@ -39,32 +61,21 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+# **2. Backend**
+### Environment Variables
+`TWILIO_KEY_1 = "Twilio Account Key 1"`
+`TWILIO_KEY_2 = "Twilio Account Key 2"`
+`PORT = "Port on which backend will run (default value 5000)"`
+### Available Scripts
+In the project directory, you can run:
+### `npm start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:5000) to view it in the browser.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### Code Splitting
+### `npm test`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Launches the test runner in the interactive watch mode.\
